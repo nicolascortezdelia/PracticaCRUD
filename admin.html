@@ -34,19 +34,22 @@
             </div>
           </nav>
     </header>
-    <main>
+    <main class="container">
+      <section>
         <h1 class="display-3 mt-5 text-center"> Administrar Productos</h1>
         <hr>
-        <form class="container">
+        <form class="container" id="formProducto">
             <div class="mb-3">
                 <label for="codigoID" class="form-label">Código</label>
                 <input type="text" class="form-control" id="codigoID" placeholder="12345">
+                <div class="invalid-feedback">Debe ingresar al menos un caracter</div>
               </div>
               
 
               <div class="mb-3">
                 <label for="productos" class="form-label">Productos</label>
-                <input type="text" class="form-control" id="productos" placeholder="12345">
+                <input type="text" class="form-control" id="producto" placeholder="12345">
+                
               </div>
 
               <div class="mb-3">
@@ -66,6 +69,58 @@
 
               <button class="btn btn-primary" type="submit">Guardar</button>
         </form>
+
+      </section>
+      <h1 class="display-3 mt-5 text-center"> Tabla Productos</h1>
+        <hr>
+        <div>
+          <button class="btn btn-primary" type="submit">Nuevo</button>
+          <button class="btn btn-secondary" type="submit">Cargar datos de Prueba</button>
+        </div>
+        <div class="my-3 table-responsive">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cod</th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>URL</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>994</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>asdasd</td>
+                <td> <button class="btn btn-warning">Editar</button> <button class="btn btn-danger">Borrar</button> </td>
+              </tr>
+              <tr>
+                <th>933</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th>184</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+
+        </div>
+
+      <section>
+
+      </section>
+        
     </main>
     <footer></footer>
     <script src="js/bootstrap.min.js"></script>
