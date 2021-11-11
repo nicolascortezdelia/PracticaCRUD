@@ -2,10 +2,10 @@ function campoRequerido(input){
     //console.log("desde la funcion campo requerido")
     //console.log(input)
     if(input.value.trim().length > 0){
-        console.log("pasó la validación")
+        //console.log("pasó la validación")
         input.className = "form-control is-valid";
     }else{
-        console.log("no pasó la validación")
+        //console.log("no pasó la validación")
         input.className = "form-control is-invalid";
     }
 }
@@ -57,7 +57,7 @@ function validarGeneral(e){
 let campoCodigo = document.querySelector("#codigoID");
 
 
-///TRAER EL INPUT DEL PRODUCTO
+///TRAER EL <INPUT> DEL PRODUCTO
 let campoProducto = document.querySelector("#producto");
 
 let campoDescripcion = document.querySelector("#descripcion");
