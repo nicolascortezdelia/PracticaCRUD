@@ -4,9 +4,11 @@ function campoRequerido(input){
     if(input.value.trim().length > 0){
         //console.log("pasó la validación")
         input.className = "form-control is-valid";
+        return true;
     }else{
         //console.log("no pasó la validación")
         input.className = "form-control is-invalid";
+        return false;
     }
 }
 
@@ -19,9 +21,11 @@ let patron = /^[0-9]{1,3}$/;
 if(patron.test(input.value)){
     //si cumple la expresión regular
     input.className = "form-control is-valid";
+    return true;
 }else{
 //si NO SE CUMPLE la expresión regular
-input.className = "form-control is-invalid"
+input.className = "form-control is-invalid";
+return false;
 }
 
 
@@ -35,17 +39,39 @@ function validarURL(input){
 
     if(patron.test(input.value)){
         input.className = "form-control is-valid";
+        return true;
     }else{
     //si NO SE CUMPLE la expresión regular
-    input.className = "form-control is-invalid"
+    input.className = "form-control is-invalid";
+    return false;
     }
 }
 
 //FUNCION PARA TRAER EL EVENTO SUBMIT
+//y para VALIDAR TODO AL FINAL
 
 function validarGeneral(e){
     e.preventDefault();
-    console.log("aqui tengo que validar todo nuevo")
+    //console.log("aqui tengo que validar todo nuevo");
+    //volver a validar todos los campos
+    //if (/*`pregungar si el campo codigo es correcto y el campo producto es correcto*/)
+
+    //declaro variable alert
+
+    let alerta = document.querySelector("#msjAlerta");
+
+    if (campoRequerido(campoCodigo) && 
+    campoRequerido(campoProducto)&&
+    campoRequerido(campoDescripcion) &&
+    validarNumeros(campoCantidad)&&
+    validarURL(campoURL)){
+        //console.log("sí pasó la validación");
+        alerta.className = "alert alert-danger my-3 d-none"; 
+    }else{
+        //console.log("no pasó la validación");
+        
+        alerta.className = "alert alert-danger my-3"; 
+    }
 
 }
 
