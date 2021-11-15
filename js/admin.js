@@ -1,82 +1,7 @@
-function campoRequerido(input){
-    //console.log("desde la funcion campo requerido")
-    //console.log(input)
-    if(input.value.trim().length > 0){
-        //console.log("pasó la validación")
-        input.className = "form-control is-valid";
-        return true;
-    }else{
-        //console.log("no pasó la validación")
-        input.className = "form-control is-invalid";
-        return false;
-    }
-}
+//LOS IMPORT VAN SIEMPRE PRIMERO
+import {campoRequerido, validarNumeros, validarURL, validarGeneral} from "./validaciones.js";
 
-//!!!!!!EXPRESIONES REGULARES!!!!!!!!
-
-function validarNumeros(input){
-//1.- crear una EXPRESIÓN REGULAR
-let patron = /^[0-9]{1,3}$/;
-//probar que la Expresión regular funcione
-if(patron.test(input.value)){
-    //si cumple la expresión regular
-    input.className = "form-control is-valid";
-    return true;
-}else{
-//si NO SE CUMPLE la expresión regular
-input.className = "form-control is-invalid";
-return false;
-}
-
-
-
-
-}
-
-
-function validarURL(input){
-    let patron = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
-
-    if(patron.test(input.value)){
-        input.className = "form-control is-valid";
-        return true;
-    }else{
-    //si NO SE CUMPLE la expresión regular
-    input.className = "form-control is-invalid";
-    return false;
-    }
-}
-
-//FUNCION PARA TRAER EL EVENTO SUBMIT
-//y para VALIDAR TODO AL FINAL
-
-function validarGeneral(e){
-    e.preventDefault();
-    //console.log("aqui tengo que validar todo nuevo");
-    //volver a validar todos los campos
-    //if (/*`pregungar si el campo codigo es correcto y el campo producto es correcto*/)
-
-    //declaro variable alert
-
-    let alerta = document.querySelector("#msjAlerta");
-
-    if (campoRequerido(campoCodigo) && 
-    campoRequerido(campoProducto)&&
-    campoRequerido(campoDescripcion) &&
-    validarNumeros(campoCantidad)&&
-    validarURL(campoURL)){
-        //console.log("sí pasó la validación");
-        alerta.className = "alert alert-danger my-3 d-none"; 
-    }else{
-        //console.log("no pasó la validación");
-        
-        alerta.className = "alert alert-danger my-3"; 
-    }
-
-}
-
-
-
+import {Producto} from "./productoClass.js"; 
 //traer el input 
 //agregar eventos a los elementos del formulario
 
@@ -115,7 +40,27 @@ campoCantidad.addEventListener("blur", () =>{validarNumeros (campoCantidad)});
 
 campoURL.addEventListener("blur", () =>{validarURL (campoURL)});
 
-formularioProducto.addEventListener("submit",validarGeneral);
+formularioProducto.addEventListener("submit",guardarProducto);
 
+function guardarProducto(e){
+    //validar los campos del formulario
+    // si los datos están bien
+    //ahí recién quiero agregar o crear un producto
+    e.preventDefault();
+
+    if(validarGeneral(campoCodigo, campoProducto, campoDescripcion,campoCantidad, campoURL)){
+
+        //agregar o crear producto
+        //llamo la función crear producto
+        crearProducto();
+    }
+}
+
+function crearProducto(){
+     
+    console.log("aquí creo el producto")
+    //crear el objeto{} PRODUCTO
+
+}
 
 
