@@ -57,8 +57,12 @@ export function validarGeneral(campoCodigo, campoProducto, campoDescripcion, cam
     //if (/*`pregungar si el campo codigo es correcto y el campo producto es correcto*/)
 
     //declaro variable alert
+    //TRAIGO el alert DESDE EL HTML
 
     let alerta = document.querySelector("#msjAlerta");
+
+    //PREGUNTAR SI TODOS LOS CAMPOS SON CORRECTOS 
+    //Y QUE ME RETORNEN UN VALOR BOOLEANO
 
     if (campoRequerido(campoCodigo) && 
     campoRequerido(campoProducto)&&
