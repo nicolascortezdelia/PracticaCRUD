@@ -22,9 +22,10 @@ let formularioProducto = document.querySelector("#formProducto")
 
 //¡¡¡¡¡LOS ARRAYS!!!!!
 //LISTA DE LOS PRODUCTOS
-let listaProductos = [];
 
+//let listaProductos = [];
 
+let listaProductos = JSON.parse(localStorage.getItem("listaProductosKey")) || [];
 
 //MANEJADORES DE EVENTO
 //para AGREGAR el evento al campo
@@ -75,6 +76,15 @@ function crearProducto(){
         listaProductos.push(productoNuevo);
         console.log(listaProductos);
         limpiarFormulario();
+        // UNA VEZ HECHO TODO ESTO QUIERO GUARDAR!! EN LOCAL STORAGE
+        guadarLocalStorage();
+
+        //mostrar el ALERT 
+        Swal.fire(
+            'Producto Creado',
+            'Su producto fue creado correctamente',
+            'success'
+          )
 
     }
 
@@ -88,4 +98,8 @@ function crearProducto(){
         campoCodigo.className = "form-control"
         campoProducto.className = "form-control"
 
+    }
+
+    function guadarLocalStorage(){
+        localStorage.setItem("listaProductosKey", JSON.stringify(listaProductos))
     }
