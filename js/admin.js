@@ -20,6 +20,12 @@ let formularioProducto = document.querySelector("#formProducto")
 
 //console.log(campoCodigo)
 
+//¡¡¡¡¡LOS ARRAYS!!!!!
+//LISTA DE LOS PRODUCTOS
+let listaProductos = [];
+
+
+
 //MANEJADORES DE EVENTO
 //para AGREGAR el evento al campo
 //con esto digo: al <input> -campocodigo- le quiero agregar un evento
@@ -61,6 +67,25 @@ function crearProducto(){
     console.log("aquí creo el producto")
     //crear el objeto{} PRODUCTO
 
-}
+    let productoNuevo = new Producto(campoCodigo.value, campoProducto.value, campoDescripcion.value, 
+        campoCantidad.value, campoURL.value);
+        
+        console.log(productoNuevo);
+        //GUARDAR el prodcuto creado en el Array
+        listaProductos.push(productoNuevo);
+        console.log(listaProductos);
+        limpiarFormulario();
+
+    }
 
 
+    //CREAR UNA FUNCIÓN PARA LIMPIAR EL FORMULARIO
+    //limpiar los value de todo el formulario
+
+    function limpiarFormulario(){
+        formularioProducto.reset();
+        //limpiar las clases de bootstrap, los is-valid, is invalid
+        campoCodigo.className = "form-control"
+        campoProducto.className = "form-control"
+
+    }
