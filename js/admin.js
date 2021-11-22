@@ -76,14 +76,17 @@ function crearProducto(){
         listaProductos.push(productoNuevo);
         console.log(listaProductos);
         limpiarFormulario();
-        // UNA VEZ HECHO TODO ESTO QUIERO GUARDAR!! EN LOCAL STORAGE
+        // UNA VEZ HECHO TODO ESTO QUIERO ¡¡¡GUARDAR!! EN LOCAL STORAGE
         guadarLocalStorage();
 
         //mostrar el ALERT 
+        //swal=un objeto que creó el que hizo el alert
+        //fire=método
+        //los otros, son 3 parámetros: título, párrafo, ícono
         Swal.fire(
-            'Producto Creado',
-            'Su producto fue creado correctamente',
-            'success'
+            'Producto Creado',//título
+            'Su producto fue creado correctamente',//párrafo descriptivo
+            'success'// ícono
           )
 
     }
@@ -97,6 +100,10 @@ function crearProducto(){
         //limpiar las clases de bootstrap, los is-valid, is invalid
         campoCodigo.className = "form-control"
         campoProducto.className = "form-control"
+        campoDescripcion.className = "form-control"
+        campoCantidad.className = "form-control"
+        campoURL.className = "form-control"
+
 
     }
 
