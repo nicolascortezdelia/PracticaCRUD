@@ -128,7 +128,8 @@ function crearProducto(){
         <td>${paramProducto.descripcion}</td>
         <td>${paramProducto.cantidad}</td>
         <td>${paramProducto.url}</td>
-        <td> <button class="btn btn-warning">Editar</button> <button class="btn btn-danger">Borrar</button> </td>
+        <td> <button class="btn btn-warning" onclick="prepararEdicionProducto(${paramProducto.codigo})">Editar</button>
+         <button class="btn btn-danger">Borrar</button> </td>
       </tr>`
     }
 
@@ -145,4 +146,22 @@ function crearProducto(){
     function borrrTabla(){
         let tabla = document.querySelector("#tablaProductos")
         tabla.innerHTML = " "; 
+    }
+
+   window.prepararEdicionProducto = function (codigoParametro) {
+        
+        console.log(codigoParametro)
+        //esta funcion
+        //tiene que OBTENER el objeto a modificar
+        let productoBuscado = listaProductos.find((itemProducto)=>{return itemProducto.codigo == codigoParametro})
+        console.log(productoBuscado);
+
+        //mostrar los datos en el form
+
+        campoCodigo.value = productoBuscado.codigo;
+        campoProducto.value = productoBuscado.producto;
+        campoDescripcion.value = productoBuscado.descripcion;
+        campoCantidad.value = productoBuscado.cantidad;
+        campoURL.value = productoBuscado.url;
+
     }
