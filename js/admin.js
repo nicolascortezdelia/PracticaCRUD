@@ -245,7 +245,6 @@ function crearProducto(){
             'success'// ícono
           )
 
-
     }
 
 
