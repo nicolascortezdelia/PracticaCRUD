@@ -6,7 +6,7 @@ import {Producto} from "./productoClass.js";
 //agregar eventos a los elementos del formulario
 
 let campoCodigo = document.querySelector("#codigoID");
-
+console.log(campoCodigo)
 
 ///TRAER EL <INPUT> DEL PRODUCTO
 let campoProducto = document.querySelector("#producto");
@@ -56,7 +56,7 @@ btnAgregar.addEventListener("click", limpiarFormulario);
 
 cargaInicial();
 
-
+//clase 15/11/21 11.10 hs
 function guardarProducto(e){
     //validar los campos del formulario
     // si los datos están bien
@@ -86,11 +86,13 @@ function guardarProducto(e){
     }
 }
 
+//clase 15/11/21 10.26hs
 function crearProducto(){
      
     console.log("aquí creo el producto")
     //crear el objeto{} PRODUCTO
 
+    //clase 17/11/21 10.13 hs
     let productoNuevo = new Producto(campoCodigo.value, campoProducto.value, campoDescripcion.value, 
         campoCantidad.value, campoURL.value);
         
@@ -137,10 +139,12 @@ function crearProducto(){
 
     }
 
+    //Clase del 17/11/21 10.32 hs
     function guadarLocalStorage(){
         localStorage.setItem("listaProductosKey", JSON.stringify(listaProductos))
     }
 
+    //clase 24/11/21 10.00 hs
     function crearFila(paramProducto){
         let tabla = document.querySelector("#tablaProductos")
         tabla.innerHTML += `<tr>
@@ -154,7 +158,7 @@ function crearProducto(){
       </tr>`
     }
 
-
+    //clase 24/11/21 10.20 hs
     function cargaInicial(){
         //preguntar si hay datos en Local Storage o en listaProductos
         //si hay datos---> que se cree la fila

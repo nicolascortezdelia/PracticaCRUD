@@ -29,8 +29,6 @@ return false;
 }
 
 
-
-
 }
 
 
@@ -50,6 +48,7 @@ export function validarURL(input){
 //FUNCION PARA TRAER EL EVENTO SUBMIT
 //y para VALIDAR TODO AL FINAL
 
+//clase 15/11/21
 export function validarGeneral(campoCodigo, campoProducto, campoDescripcion, campoCantidad, campoURL){
     
     //console.log("aqui tengo que validar todo nuevo");
