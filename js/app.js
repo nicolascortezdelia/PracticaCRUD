@@ -24,3 +24,11 @@ function crearCard(produdctoMaquetado){
 
     
 }
+
+//traer el input del buscador
+let inputBuscador = document.querySelector("#idBuscador");
+console.log(inputBuscador);
+
+//función de buscador
+
+//listaProductos.filter((condicion) => { condicion.categoria == inputBuscador.value;});
