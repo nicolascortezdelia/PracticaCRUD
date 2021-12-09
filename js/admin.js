@@ -26,6 +26,7 @@ let formularioProducto = document.querySelector("#formProducto")
 //let listaProductos = [];
 
 let listaProductos = JSON.parse(localStorage.getItem("listaProductosKey")) || [];
+//clase 29/11/21 9.59 hs
 let productoExistente = false;//si productoExistente = false, es porque quiero CREAR un producto
 let btnAgregar = document.querySelector("#btnAgregar")
 
@@ -73,6 +74,7 @@ function guardarProducto(e){
         }else{
             
         //caso 2:
+        //clase 29/11/21 9.56
         modificarProducto();
 
 
@@ -188,14 +190,16 @@ function crearProducto(){
         campoDescripcion.value = productoBuscado.descripcion;
         campoCantidad.value = productoBuscado.cantidad;
         campoURL.value = productoBuscado.url;
+        //clase 29/11/21 10.02 hs
         ///aquí modifico la variable boolean
         productoExistente = true;
 
     }
 
+    //clase 29/11/21 9.56
     function modificarProducto(){
         console.log("aquí quiero modificar este producto");
-        //buscar la posició de mi producto dentro del arreglo
+        //buscar la posición de mi producto dentro del arreglo
         let posicionDelProducto = listaProductos.findIndex((itemProducto)=>{return itemProducto.codigo == campoCodigo.value});
         console.log(posicionDelProducto)
 
