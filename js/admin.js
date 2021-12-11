@@ -170,7 +170,7 @@ function crearProducto(){
         }
     }
 
-    function borrrTabla(){
+    function borrarTabla(){
         let tabla = document.querySelector("#tablaProductos")
         tabla.innerHTML = " "; 
     }
@@ -224,7 +224,7 @@ function crearProducto(){
 
         //que se actualice en la tabla
         //1ºborrar todo lo que hay en la tabla
-        borrrTabla();
+        borrarTabla();
 
         //2ºvolver a dibujar la fila
         listaProductos.forEach((itemProducto)=>{crearFila(itemProducto)});
@@ -243,7 +243,7 @@ function crearProducto(){
         guadarLocalStorage();
 
         //actualizar los datos de la tabla
-        borrrTabla()
+        borrarTabla()
 
         listaProductos.forEach((itemProducto)=>{crearFila(itemProducto)});
 
