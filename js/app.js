@@ -44,7 +44,7 @@ function buscarProducto(e){
   e.preventDefault();
   console.log("hasta aquí va la función que crea productos")
 
-  let productoBuscado = listaProductos.filter((objetoProducto)=>{return objetoProducto.codigo == idBuscador.value});
+  let productoBuscado = listaProductos.filter((objetoProducto)=>{return objetoProducto.codigo == idBuscador.value || objetoProducto.producto == idBuscador.value});
 console.log(productoBuscado)
 
 
