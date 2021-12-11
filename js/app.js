@@ -1,28 +1,30 @@
 //traer los datos del local storage
 //es decir, traer el array [] con los objetos
-
+let grilla = document.querySelector("#grillaPrincipal");
 let listaProductos = JSON.parse(localStorage.getItem("listaProductosKey")) || [];
 
-listaProductos.forEach((producto)=>{crearCard(producto)})
+listaProductos.forEach((producto) => {
+  crearCard(producto);
+});
 
-function crearCard(produdctoMaquetado){
-    let grilla = document.querySelector("#grillaPrincipal");
 
-    grilla.innerHTML += ` <div class="col-sm-12 col-md-4 col-lg-3 mb-3">
+
+function crearCard(produdctoMaquetado) {
+  
+
+  grilla.innerHTML += ` <div class="col-sm-12 col-md-4 col-lg-3 mb-3">
     <div class="card">
         <img src="${produdctoMaquetado.url}" class="card-img-top" alt="${produdctoMaquetado.producto}">
         <div class="card-body">
           <h5 class="card-title">${produdctoMaquetado.producto}</h5>
           <p class="card-text">${produdctoMaquetado.descripcion}
-          ${produdctoMaquetado.cantidad}
+          
           </p>
         </div>
       </div>
     </div>
     
-  </div>`
-
-    
+  </div>`;
 }
 
 //traer el input del buscador
@@ -32,32 +34,69 @@ let inputBuscador = document.querySelector("#idBuscador");
 //función de buscador
 
 //creo un array donde se guarden los productos que pasen por el metodo filter
-/*nombre_array.filter((condicion) => { condicion.categoria == 'lo que pusiste en el input';});*/ 
+/*nombre_array.filter((condicion) => { condicion.categoria == 'lo que pusiste en el input';});*/
 
 //let productoBuscado = listaProductos.filter((objetoProducto)=>{return objetoProducto.codigo == idBuscador.value});
 //console.log(productoBuscado)
 
-let formularioBuscador  = document.getElementById('BuscarForm');
-formularioBuscador.addEventListener("submit", buscarProducto);
+let formularioBuscador = document.getElementById("BuscarForm");
+formularioBuscador.addEventListener("submit",buscarProducto)
+/*formularioBuscador.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const buscar = formularioBuscador.elements["idBuscador"].value;
+  let resultado = listaProductos.filter((objetoProducto) => {
+    return objetoProducto.codigo == buscar;
+  });
+  console.log(resultado);
+  
+  
+});*/
 
-function buscarProducto(e){
-  e.preventDefault();
-  console.log("hasta aquí va la función que crea productos")
-
-  let productoBuscado = listaProductos.filter((objetoProducto)=>{return objetoProducto.codigo == idBuscador.value || objetoProducto.producto == idBuscador.value});
-console.log(productoBuscado)
-
-
+function borrarCards(){
+  
+        grilla.innerHTML = " ";
+        console.log("se activa la función borrar cards")
 }
 
-/*form.addEventListener('submit', (event) => {
-  const buscar = form.elements['idBuscador'].value;
+
+
+function buscarProducto(e) {
+  e.preventDefault();
+  console.log("le saco el evento submit por defecto al botón buscar");
+  
+  borrarCards();
+
+  listaProductos.filter((objetoProducto)=>{if(objetoProducto.codigo == idBuscador.value){
+    crearCard(objetoProducto);
+  }})
+
+}
+        
+      
+      /*return (
+      objetoProducto.codigo == idBuscador.value ||
+      objetoProducto.producto == idBuscador.value
+    );*/
+
+  
+  //console.log(productoBuscado); 
+  
+
+  /*listaProductos.forEach((objetoProducto) => {
+    crearCard(objetoProducto);
+  });*/
+  
+ 
+
+
+/*form.addEventListener("submit", (event) => {
+  const buscar = form.elements["idBuscador"].value;
   const resultado = example.filter((value) => {
-    return value.producto == buscar; 
+    return value.producto == buscar;
   });
   document.getElementById("Resultado").innerHTML = resultado[0].producto;
   event.preventDefault();
-});*/
+});
 
 /*formularioProducto.addEventListener("submit",guardarProducto);
 
@@ -66,9 +105,6 @@ console.log(productoBuscado)
 function guardarProducto(e){
    
     e.preventDefault();*/
-
-
-
 
 /*[18:44, 9/12/2021] Gustavo Cortez: en index.html, fijate de agregar "id" al form cambiar button por input type="submit"
 [18:44, 9/12/2021] Gustavo Cortez: <form class="my-3" id="BuscarForm">
@@ -107,4 +143,4 @@ form.addEventListener('submit', (event) => {
 [18:46, 9/12/2021] Gustavo Cortez: Lo cambie en mi computadora, y lo pruebo local, no hice push ni nada, sino va a aparecer mi nombre, por eso te pego el código
 [18:46, 9/12/2021] Nicolás: Ahhh genial genial
 [18:47, 9/12/2021] Nicolás: A ver ya lo pruebo
-[18:48, 9/12/2021] Gustavo Cortez: algo así te debería salir, yo puse. Al resultado "innerHtml" lo tendrás que cambiar, porque devuelve un array, tendrás que recorrer el array para mostrar el resultado*/ 
+[18:48, 9/12/2021] Gustavo Cortez: algo así te debería salir, yo puse. Al resultado "innerHtml" lo tendrás que cambiar, porque devuelve un array, tendrás que recorrer el array para mostrar el resultado*/
